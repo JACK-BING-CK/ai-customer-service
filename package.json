@@ -1,0 +1,48 @@
+{
+  "name": "support-handoff",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.14.0"
+  },
+  "scripts": {
+    "start": "node server/main.ts",
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc --noEmit && vite build",
+    "test": "node --test tests/store.test.ts tests/service.test.ts tests/realtime.test.ts tests/diagnostics.test.ts tests/monitor.test.ts tests/commerce.test.ts tests/commerce-flow.test.ts tests/merchant-store.test.ts tests/merchant-xlsx.test.ts tests/feedback.test.ts tests/feedback-routes.test.ts tests/trace-store.test.ts tests/trace-integration.test.ts tests/trace-log-history.test.ts && vitest run tests/ai.test.ts tests/commerce-ui.test.tsx tests/monitor-map.test.tsx tests/merchant-ui.test.tsx",
+    "replay:policy": "node scripts/replay-policy.mjs",
+    "accept": "node scripts/accept.mjs",
+    "accept:orders": "node scripts/accept-orders.mjs",
+    "accept:merchant": "node scripts/accept-orders.mjs --merchant",
+    "accept:feedback": "node scripts/accept-orders.mjs --feedback",
+    "accept:upgrade": "node scripts/accept-orders.mjs --feedback --upgrade",
+    "accept:trace": "node scripts/accept-orders.mjs --trace",
+    "doctor": "node scripts/doctor.mjs",
+    "trace": "node scripts/trace.mjs"
+  },
+  "dependencies": {
+    "@ai-sdk/deepseek": "3.0.89",
+    "@assistant-ui/react": "0.15.37",
+    "ai": "7.0.179",
+    "express": "5.3.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "socket.io": "4.8.4",
+    "socket.io-client": "4.8.4",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
+    "yauzl": "3.4.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/yauzl": "3.4.0",
+    "@vitejs/plugin-react": "5.2.0",
+    "typescript": "5.9.3",
+    "vite": "7.3.8",
+    "vitest": "4.1.12"
+  }
+}
